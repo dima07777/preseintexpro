@@ -1,0 +1,197 @@
+article {
+    width: 83vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.rect1, .rect2, .rect3, .rect11, .rect12, .rect13, .rect14 {
+    position: absolute;
+    z-index: -1;
+}
+.rect1 {
+    left: 17vw;
+    top: 4vw;
+    width: 60vw;
+}
+.rect2 {
+    width: 30vw;
+    right: -15vw;
+    top: 11vw;
+}
+.rect3 {
+    width: 25vw;
+    left: 4vw;
+    top: 23vw;
+}
+.hidden {
+    visibility: hidden;
+}
+
+/* шаблоны */
+.templates {
+    padding-top: 7vw;
+}
+
+/* ... select ... */
+select {
+    border: none;
+    font-size: 1.3vw;
+    padding: 0.5vw 0.5vw;
+}
+option {
+    font-size: 1.3vw;
+}
+.shadow_select {
+    box-shadow: 0 0.1vw 0 0 rgba(0, 0, 0, 0.2);
+}
+/* ... шаблоны */
+.option_template {
+    margin-left: 2vw;
+}
+
+.templates_gallery {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 2vw;
+}
+.template_item {
+    width: 8vw;
+    height: 4.5vw;
+    border-radius: 0.5vw;
+    overflow: hidden;
+}
+.template_img {
+    width: 8vw;
+    height: 4.5vw;
+}
+
+/* рабочее пространство */
+.workspace {
+    flex: 1 0 auto;
+    width: 83vw;
+    padding: 2vw;
+}
+
+.wrapper, .wrapper_presentation, .wrapper_presentation_main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 2vw 0;
+}
+.workspace_buttons {
+    display: flex;
+    width: 45%;
+    justify-content: space-between;
+}
+.workspace_button {
+    background-color: rgb(55, 116, 227);
+    box-shadow: 0 0.2vw 0 0 rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 1vw;
+    width: 11vw;
+    height: 3vw;
+    border-radius: 1vw;
+    border: none;
+}
+.workspace_button:hover {
+    cursor: pointer;
+}
+.button_icon {
+    width: 1vw;
+    height: 1vw;
+}
+
+.sort {
+    background-color: white;
+    width: 25%;
+    height: 3vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 1vw;
+    padding: 0 0.5vw;
+}
+
+/* презентации */
+.white {
+    background-color: white;
+}
+.presentation {
+    display: flex;
+    justify-content: space-between;
+    height: 5vw;
+    color: white;
+    background-color: rgba(55, 116, 227, 1);
+    box-shadow: 0.1vw 0.1vw 0 0 rgba(0, 0, 0, 0.1);
+    border-radius: 0.5vw;
+    padding: 0.5vw;
+    margin: 0.5vw;
+}
+.presentation:hover > .wrapper_presentation_info > .hidden {
+    visibility: visible;
+}
+.wrapper_presentation_main {
+    width: 33%;
+    margin: 0;
+}
+.wrapper_presentation_main > img {
+    width: 7.1vw;
+    height: 4vw;
+}
+.wrapper_presentation {
+    width: 20%;
+    margin: 0 2vw 0 0;
+}
+.wrapper_presentation_info {
+    width: 37.5%;
+    margin-right: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.wrapper_presentation > img {
+    width: 7.1vw;
+    height: 4vw;
+}
+.wrapper_a {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 2vw 0;
+}
+.presentation_name {
+    width: 15vw;
+}
+#presentations_point {
+    height: 3vw;
+    border-radius: 1vw;
+}
+.wrapper_presentation > p {
+    font-size: 1.2vw;
+    font-weight: 700;
+}
+.presentation_info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.presentation_info_logo {
+    width: 1.5vw;
+    height: 1.5vw;
+}
+.presentation_info_name {
+    font-size: 1vw;
+}
+
+.present_button {
+    border: none;
+    padding: 0.2vw 0.5vw;
+    box-shadow: 0 0.2vw 0 0 rgba(0, 0, 0, 0.8);
+    border-radius: 1vw;
+    cursor: pointer;
+}

@@ -1,0 +1,285 @@
+.stay {
+    position: fixed;
+    background-color: white;
+}
+.article, .slides, .right-menu {
+    margin-top: 4vw;
+}
+.article {
+    /* z-index: -7; */
+    width: 60vw;
+    background-color: rgb(215, 215, 215);
+}
+.slides {
+    overflow: auto; 
+    background-color: rgb(250, 250, 250);
+    border: none;
+    display: block;
+    width: 14vw;
+    height: 48vw;
+}
+.small-slide {
+    width: 80%;
+    height: 6vw;
+    margin: 10% 10%;
+    border: 2px solid  rgb(169, 169, 169);
+    border-radius: 1vw;
+    overflow: hidden;
+}
+
+.small-slide:hover {
+    border: 2px solid  rgb(55, 116, 227);
+}
+
+.small-slide.hover {
+    box-shadow: 0px 0px 0px 15px rgb(156, 214, 255);
+    /* background-color: aqua; */
+    border: 2px solid rgb(55, 116, 227);
+}
+
+
+.slide {
+    width: 80%;
+    height: 6vw;
+    margin: 10% 10%;
+    border: 2px solid  rgb(55, 116, 227);
+    border-radius: 1vw;
+    overflow: hidden;
+}
+.fixed {
+    margin-top: 2vw;
+    position: fixed;
+    left: 15vw;
+    width: 57.6vw;
+    height: 36.3vw; 
+    border: 1px solid rgb(158, 158, 158);
+    border-radius: 1vw;
+    background-color: white;
+    /* z-index: -6; */
+}
+.fixed > p {
+    visibility: hidden;
+}
+
+.right-menu {
+    overflow: auto; 
+    height: 48vw;
+    /* height: auto; */
+    /* min-height: calc(100vh - 4vw); */
+    width: 26vw;
+    padding: 0 1vw;
+}
+
+#mainForm {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+label > .rad {
+    visibility: hidden;
+    position: absolute;
+}
+label:hover {
+    cursor: pointer;
+}
+label > .rad:checked + p {
+    text-decoration: underline 2px rgb(28, 75, 160);
+    text-shadow: 1px 1px black;
+}
+
+.presentation_pick_menu {
+    display: flex;
+    justify-content: space-evenly;
+}
+.presentation_pick_menu_item {
+    border: none;
+    background-color: white;
+    font-size: 1.5vw;
+}
+
+.presentation_pick_name {
+    background-color: rgb(55, 116, 227);
+    border-radius: 1vw;
+    box-shadow: 0 0.1vw 0 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 3.5vw;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.presentation_pick_name > img {
+    width: 2vw;
+    height: 2vw;
+    margin: 0 1vw;
+}
+.presentation_pick_gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 1vw;
+    width: 100%;
+    margin: 2vw 0;
+}
+.presentation_pick_element {
+    width: 30%;
+    height: 5vw;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0.5vw;
+}
+.presentation_pick_element:hover{
+    border: 2px solid  rgb(55, 116, 227);
+    transform: scale(1.05); /* Увеличиваем элемент немного при наведении */
+}
+#addSlideButton{
+    border: 2px solid  rgb(158, 158, 158);
+
+}
+#addSlideButton:hover{
+    border: 2px solid  rgb(55, 116, 227);
+    transform: scale(1.05); /* Увеличиваем элемент немного при наведении */
+
+}
+
+.presentation_pick_element_delete{
+    width: 15%;
+    height: 2vw;
+    margin-top: 20%;
+    margin-left: 80%;
+    /* text-align: right; */
+    border: 0.5px solid gray;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    background-color: white;
+}
+
+.presentation_pick_element_delete:hover {
+    background-color: lightgray; 
+    border-color: rgb(169, 169, 169); 
+    transform: scale(1.05); 
+}
+
+.presentation_pick_element:hover {
+    cursor: pointer;
+}
+.presentation_pick_element > img {
+    width: 70%;
+    height: 2.5vw;
+    margin: 0 15%;
+}
+.presentation_pick_element > p {
+    font-size: 1vw;
+    text-align: center;
+}
+
+@media screen and (max-width: 1100px) {
+    .fixed {
+        background-color: rgb(55, 116, 227);
+        border: none;
+    }    
+    .fixed > p {
+        visibility: visible;
+        padding: 3vw;
+        font-size: 4vw;
+        color: white;
+    }
+}
+
+.boxfunck2 {
+    display: none;
+    text-align: center;
+  }
+
+ #square {
+    width: 20vw;
+    height: 20vw;
+    /* border: 2px solid black; */
+    position: relative;
+    overflow: hidden;
+}
+
+#outputImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#video-link{
+    margin-left: 6.5%;
+    /* padding: auto; */
+    text-align: center;
+    width: 50vw;
+    margin-top: 5%;
+}
+
+#player{
+    margin-top: 5%;
+}
+
+.bgph0,
+.bgph1,
+.bgph2,
+.bgph3,
+.bgph4,
+.bgph6,
+.bgph7,
+.bgph8,
+.bgph5 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%; /* изменено с 57.6vw на 100% */
+    height: 36.3vw;
+    border: 1px solid rgb(158, 158, 158);
+    border-radius: 1vw;
+    z-index: -1;
+}
+
+.bgph0{
+    background-image: url('../img/bg0.png');
+}
+.bgph1{
+    background-image: url('../img/bg1.png');
+}
+.bgph2{
+    background-image: url('../img/bg2.png');
+}
+.bgph3{
+    background-image: url('../img/bg3.png');
+}
+.bgph4{
+    background-image: url('../img/bg4.png');
+}
+.bgph5{
+    background-image: url('../img/bg5.png');
+}
+.bgph6{
+    background-image: url('../img/bg6.png');
+}
+.bgph7{
+    background-image: url('../img/bg7.png');
+}
+.bgph8{
+    background-image: url('../img/bg8.png');
+}
+
+
+.context-menu { 
+    display: none; 
+    position: absolute; 
+    background: #fff; 
+    border: 1px solid #ccc; 
+    padding: 5px; 
+  } 
+ /* 
+  .Zagolovok20{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+  } */

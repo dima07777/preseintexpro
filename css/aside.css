@@ -1,0 +1,51 @@
+aside {
+    display: flex;
+    width: 14.5vw;
+    background-color: rgb(28, 75, 160);
+    height: auto;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.add_person {
+    margin-left: 0.25vw;
+    margin-top: 1vw;
+    width: 2vw;
+    height: 2vw;
+    border: none;
+}
+/* .person {
+    width: 3vw;
+    border-right: 1px solid black;
+    background-color: rgb(3, 34, 90);
+} */
+.person_logo, .function_logo {
+    margin-left: 0.25vw;
+    width: 3vw;
+    height: 2vw;
+    z-index: 100;
+}
+.person_logo {
+    margin-top: 1vw;
+    border-radius: 0.4vw;
+}
+
+.function {
+    width: 14vw;
+}
+.workspace_choose {
+    padding: 0.5vw 0;
+    border-bottom: 1px solid black;
+}
+.func {
+    display: flex;
+    align-items: center;
+    margin-top: 1vw;
+}
+.function_logo {
+    margin-right: 0.5vw;
+}
+.function_name {
+    font-size: 1vw;
+    color: white;
+}
