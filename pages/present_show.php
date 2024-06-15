@@ -152,7 +152,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="../css/style.css">
-		<link rel="stylesheet" href="../css/present_show.css">
+		<!-- <link rel="stylesheet" href="../css/present_show.css"> -->
+		<link rel="stylesheet" href="../css/bad1.css">
+   	     <link rel="stylesheet" href="../css/style.css">
 	</head>
 	<body>
 		<header class="main_menu">
@@ -163,8 +165,8 @@
     	        </div>
     	    </a>
     	    <div class="main_menu_items">
-    	            <a href="" class="main_menu_item">Предпросмотр</a>
-    	            <a href="" class="main_menu_item">Показ</a>
+    	            <!-- <a href="" class="main_menu_item">Предпросмотр</a> -->
+    	            <!-- <a href="" class="main_menu_item">Показ</a> -->
     	        <?php 
     	            if (isset($_SESSION['user']) and isset($_SESSION['user']['name'])) {
     	                echo "<a href='' class='main_menu_item'>Пользователь: {$_SESSION['user']['name']}</a>
@@ -173,7 +175,7 @@
     	                echo "<a href='registration.php' class='main_menu_item'>Регистрация</a>
     	                <a href='authorization.php' class='main_menu_item'>Авторизация</a>";
     	            }
-    	        ?>
+					?>
     	    </div>
     	</header>
 		<main>
@@ -184,147 +186,176 @@
 					
 					// Получаем id презентации из URL
 					$presentationId = isset($_GET['id']) ? $_GET['id'] : null;
-				
+					
 					if ($presentationId !== null) {
 						// Запрос к базе данных для получения user_id презентации
 						$sql = "SELECT user_id FROM presentations WHERE id = $presentationId";
 						$result = $conn->query($sql);
-				
+						
 						if ($result->num_rows > 0) {
 							$row = $result->fetch_assoc();
 							$presentationUserId = $row['user_id'];
-				
+							
 							if ($userId == $presentationUserId) {
-						echo "<aside class='slides'>
-						<div id='slideContainer'> </div>
-						<div class='slide'  id='addSlideButton' style='display: none'>
-							<img src='../img/plus.png' alt=''>
-						</div>
-						</aside>
-						
-						<article class='article' style='margin: 0; width: 74vw;'>
-						<div class='fixed activeSlide' id='activeSlide'>
+								echo "<aside class='slides'>
+								<div id='slideContainer'> </div>
+								<div class='slide'  id='addSlideButton' style='display: none'>
+								<img src='../img/plus.png' alt=''>
+								</div>
+								</aside>
+								
+								<article class='article' style='margin: 0; width: 74vw;'>
+								<div class='fixed activeSlide' id='activeSlide'>
+								
+								
+								<p style='margin-top: 5vw;'>для изменения слайда используйте РС или laptop</p>
+								
+								
+								
+								</div>
+								</article>";
+							} else {
+								echo "		
+								<article class='article' style='margin: 0; width: 74vw;'>
+								<div class='fixed activeSlide' id='activeSlide'>
+
+								
+								<p style='margin-top: 5vw;'>для изменения слайда используйте РС или laptop</p>
+								
+								
+								
+								</div>
+								</article>";
+							}}}}
+							?>
 
 
-						<p style='margin-top: 5vw;'>для изменения слайда используйте РС или laptop</p>
-					
-						
-						
-					</div>
-						</article>";
-					} else {
-					echo "		
-					<article class='article' style='margin: 0; width: 74vw;'>
-					<div class='fixed activeSlide' id='activeSlide'>
 
 
-					<p style='margin-top: 5vw;'>для изменения слайда используйте РС или laptop</p>
-				   
-					
-					
-				</div>
-					</article>";
-				}}}}
-			?>
-
-			
-
-			<div class="right-menu" style="margin: 0;">
-				<div id="wrapper">
-					<h1>Чат</h1>
-
-					<div id="msgsDialog" class="block">
-						<div id="msgsContent">
-							<?php chatOut(); ?>
-						</div>
-
-						<label class="options first"><input id="autoScroll" type="checkbox" checked="checked" /> прокручивать вниз</label>
-						<label class="options"><input id="autoHeight" type="checkbox" checked="checked" /> авторазмер ввода</label>
-
-						<div class="ct"></div>
-						<div class="cb"></div>
-					</div>
-					<br />
-					<br />
-					<form action="" method="post" id="sendForm">
-						<div id="sendDialog" class="block2">
-							<input type="hidden" name="name" value="<?php echo( $name ); ?>" maxlength="<?php echo( MAXUSERNAMELEN ) ?>" />
-							<textarea name="text" placeholder="Текст" style="margin-top: 0.5em;" maxlength="<?php echo( MAXUSERTEXTLEN ); ?>"></textarea>
-							<input type="submit" value="отправить" class="button" title="ctrl + enter" id="submit"/>
-							<div class="ad"></div>
-						</div>
-					</form>
-				</div>
+<div class="right-menu" style="margin: 0;">
+	<div id="wrapper">
+		<!-- <h1>Чат</h1>
+		
+		<div id="msgsDialog" class="block">
+			<div id="msgsContent">
+				<?php chatOut(); ?>
 			</div>
-		</main>
+			
+			<label class="options first"><input id="autoScroll" type="checkbox" checked="checked" /> прокручивать вниз</label>
+			<label class="options"><input id="autoHeight" type="checkbox" checked="checked" /> авторазмер ввода</label>
+			
+			<div class="ct"></div>
+			<div class="cb"></div>
+		</div>
+		<br />
+		<br />
+		<form action="" method="post" id="sendForm">
+			<div id="sendDialog" class="block2">
+				<input type="hidden" name="name" value="<?php echo( $name ); ?>" maxlength="<?php echo( MAXUSERNAMELEN ) ?>" />
+				<textarea name="text" placeholder="Текст" style="margin-top: 0.5em;" maxlength="<?php echo( MAXUSERTEXTLEN ); ?>"></textarea>
+				<input type="submit" value="отправить" class="button" title="ctrl + enter" id="submit"/>
+				<div class="ad"></div>
+			</div>
+		</form> -->
+	</div>
+</div>
+<button id="change-color-btn" style="none"></button>
+<form id="form">
+	
+	</form>
 
+</main>
+<script>
+	 const userId = <?php echo $_SESSION['user']['id']; ?>;
+  var variable1 = 1;
+
+ const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.addedNodes.length > 0) {
+      console.log('Добавлено:', mutation.addedNodes);
+      const block = document.querySelector('.block.ask-question');
+	  if (block && variable1 !== userId) {
+ 	 block.style.display = 'block';
+	}
+
+    }
+  });
+});
+
+observer.observe(document.body, {
+  childList: true,
+  subtree: true
+});
+
+</script>
+<script src="../app.js"></script>
 <!-- script -->
-		<script type="text/javascript">
-			( function() {
-				var msgsDialog = document.getElementById( "msgsDialog" );
-				var sendDialog = document.getElementById( "sendDialog" );
-				var submit = document.getElementById( "submit" );
-
-				var msgs = document.getElementById( "msgsContent" );
-				var oAS = document.getElementById( "autoScroll" );
-				var oAH = document.getElementById( "autoHeight" );
-				var f = document.getElementById( "sendForm" );
-				var name = f.elements.name;
-				var text = f.elements.text;
-
-				// вроде как авто увеличение высоты инпута для сообщения
-				function ah( el, maxH, state ) {									
-					if ( arguments.length === 1 ) {
-						if ( el._ah_ ) el._ah_();
-						return;
-					}
-
-					if ( el._ah_ ) de( el, "input", el._ah_ );
-					delete( el._ah_ );
-					el.style.height = "auto";
-
-					if ( state ) {
-						el.style.boxSizing = "border-box";
-						var h = el.offsetHeight;
-						var dh = h - el.clientHeight;
-
-						el._ah_ = function() {							
-							while ( true ) {
-								t = el.offsetHeight - 16;
-								el.style.height = t + "px";
-								if ( t < h || el.scrollHeight > el.clientHeight ) break;
-							}
-
-					//		el.style.height = "auto";
-							var nh = el.scrollHeight + dh;
-							if ( maxH && nh > maxH ) nh = maxH;
-							el.style.height = nh + "px";
-						};
-
-						ae( el, "input", el._ah_ );
-						el._ah_();
-					}
-				}
-
-				if ( oAH.checked ) ah( text, 500, true );
-
-				var msgsDialogWaiter = WAITER( msgsDialog );
-				var sendDialogWaiter = WAITER( sendDialog );
+<script type="text/javascript">
+	( function() {
+		var msgsDialog = document.getElementById( "msgsDialog" );
+		var sendDialog = document.getElementById( "sendDialog" );
+		var submit = document.getElementById( "submit" );
+		
+		var msgs = document.getElementById( "msgsContent" );
+		var oAS = document.getElementById( "autoScroll" );
+		var oAH = document.getElementById( "autoHeight" );
+		var f = document.getElementById( "sendForm" );
+		var name = f.elements.name;
+		var text = f.elements.text;
+		
+		// вроде как авто увеличение высоты инпута для сообщения
+		function ah( el, maxH, state ) {									
+			if ( arguments.length === 1 ) {
+				if ( el._ah_ ) el._ah_();
+				return;
+			}
+			
+			if ( el._ah_ ) de( el, "input", el._ah_ );
+			delete( el._ah_ );
+			el.style.height = "auto";
+			
+			if ( state ) {
+				el.style.boxSizing = "border-box";
+				var h = el.offsetHeight;
+				var dh = h - el.clientHeight;
 				
+				el._ah_ = function() {							
+					while ( true ) {
+						t = el.offsetHeight - 16;
+						el.style.height = t + "px";
+						if ( t < h || el.scrollHeight > el.clientHeight ) break;
+					}
+					
+					//		el.style.height = "auto";
+					var nh = el.scrollHeight + dh;
+					if ( maxH && nh > maxH ) nh = maxH;
+					el.style.height = nh + "px";
+				};
+				
+				ae( el, "input", el._ah_ );
+				el._ah_();
+			}
+		}
+		
+		if ( oAH.checked ) ah( text, 500, true );
+		
+		var msgsDialogWaiter = WAITER( msgsDialog );
+		var sendDialogWaiter = WAITER( sendDialog );
+		
 				function ae( obj, event, handler ) {
 					if ( typeof( obj.addEventListener ) != 'undefined' ) obj.addEventListener( event, handler, true );
 					else if ( typeof ( obj.attachEvent ) != 'undefined' ) obj.attachEvent( 'on' + event, handler, true );
 				}
-
+				
 				function de( obj, event, handler ) {
 					if ( typeof( obj.removeEventListener) != 'undefined' ) obj.removeEventListener( event, handler, true );
 					else if ( typeof( obj.detachEvent ) != 'undefined' ) obj.detachEvent( 'on' + event, handler );
 				}
-
+				
 				// выполняет асинхронный POST-запрос на указанный URL с заданными параметрами и обрабатывает ответ?
 				function post( url, reqParams, handler ) {
 					var XMLo;
-
+					
 					if ( window.XMLHttpRequest ) {
 						try { XMLo = new XMLHttpRequest(); }
 						catch ( e ) { XMLo = null; }
@@ -335,11 +366,11 @@
 							catch ( e ) { XMLo = null; }
 						}
 					}
-
+					
 					if ( XMLo == null ) return null;
-
+					
 					XMLo.open( "POST", url, true );
-
+					
 					XMLo.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" );
 					if ( reqParams ) {
 						var prm = "";
@@ -353,7 +384,7 @@
 					}
 					XMLo.setRequestHeader( "X-Requested-With", "XMLHttpRequest" );
 					XMLo.setRequestHeader( "Accept", "*/*" );
-
+					
 					XMLo.onreadystatechange = function() {
 						if ( XMLo.readyState == 4 ) {
 							if ( XMLo.status == 200 || XMLo.status == 0 ) {
@@ -362,21 +393,21 @@
 							else {
 								handler( false, XMLo.status, XMLo.responseText );
 							}
-
+							
 							delete XMLo;
 							XMLo = null;
 						}
 					};
-
+					
 					XMLo.send( reqParams );
-
+					
 					return ( XMLo != null );
 				}
 
 				// реализует анимацию плавного изменения прозрачности элемента на веб-странице?
 				function fade( o, opts, dontStartNow ) {
 					var ov, ob, oe, os, t;
-
+					
 					function th() {
 						ov += os;
 						if ( ( os > 0 && ov >= oe ) || ( os < 0 && ov <= oe ) ) {
@@ -384,17 +415,17 @@
 							clearInterval( t );
 							t = null;
 						}
-
+						
 						o.style.opacity = ov;
-
+						
 						if ( !t && opts.hasOwnProperty( "handler" ) ) opts.handler( true, fs, o );
 					}
-
+					
 					function init() {
 						os = opts.hasOwnProperty( "os" ) ? Math.abs( opts.os ) : 0.1;
-
+						
 						if ( !opts.hasOwnProperty( "delay" ) ) opts.delay = 30;
-
+						
 						if ( !opts.hasOwnProperty( "ob" ) ) {
 							ob = parseFloat( o.style.opacity );
 							if ( isNaN( ob ) ) ob = 1;
@@ -404,18 +435,18 @@
 							o.style.opacity = ob;
 						}
 						ov = ob;
-
+						
 						if ( !opts.hasOwnProperty( "oe" ) ) {
 							oe = parseFloat( o.style.opacity );
 							if ( isNaN( oe ) ) oe = 1;
 						}
 						else oe = opts.oe;
-
+						
 						if ( ob > oe ) os = -os;
-
+						
 						if ( ob != oe ) t = setInterval( th, opts.delay );
 					}
-
+					
 					var fs = {
 						get: function() {
 							return {
@@ -426,22 +457,22 @@
 								os:		os
 							};
 						},
-
+						
 						stop: function( end, dontNotify ) {
 							if ( !t ) return;
-
+							
 							clearInterval( t );
 							t = null;
 							if ( end ) o.style.opacity = oe;
-
+							
 							if ( dontNotify !== true && opts.hasOwnProperty( "handler" ) ) opts.handler( true, fs, o );
 						},
-
+						
 						start: function( restart, newOpts, dontNotify ) {
 							if ( t ) return;
-
+							
 							if ( newOpts ) opts = newOpts;
-
+							
 							if ( restart ) {
 								init();
 								if ( dontNotify !== true && opts.hasOwnProperty( "handler" ) ) opts.handler( false, fs, o );
@@ -449,7 +480,7 @@
 							else t = setInterval( th, opts.delay );
 						}
 					};
-
+					
 					if ( dontStartNow !== true ) fs.start( true );
 					return fs;
 				}
@@ -457,29 +488,29 @@
 				// подсказки?
 				var tipUpper = (function() {
 					var lastTip = null;
-
+					
 					return function( o, html, ax, ay ) {
 						if ( ax == undefined ) ax = 0;
 						if ( ay == undefined ) ay = -5;
-
+						
 						function getCords( elem ) {
 							var box = elem.getBoundingClientRect();
-
+							
 							var body = document.body;
 							var docEl = document.documentElement;
-
+							
 							var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
 							var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
-
+							
 							var clientTop = docEl.clientTop || body.clientTop || 0;
 							var clientLeft = docEl.clientLeft || body.clientLeft || 0;
-
+							
 							var top  = box.top +  scrollTop - clientTop;
 							var left = box.left + scrollLeft - clientLeft;
-
+							
 							return { top: Math.round(top), left: Math.round(left) };
 						}
-
+						
 						function attachEvents( tip, o ) {
 							detachEvents( tip );
 							tip.eh = function() {
@@ -488,6 +519,7 @@
 								lastTip = null;
 								f.start(
 									true,
+									
 									{
 										oe: 0,
 										os: 0.1,
@@ -924,22 +956,22 @@ function toggleHover(element) {
 var activeSlideId = null;
 
 // Функция для загрузки содержимого конкретного слайда
-function loadSlideContent(slideId) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '../components/get_slide_content.php?id=' + slideId, true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                document.getElementById('activeSlide').innerHTML = xhr.responseText;
-                // Устанавливаем текущий активный слайд
-                activeSlideId = slideId;
-            } else {
-                alert('Произошла ошибка при получении содержимого слайда.');
-            }
-        }
-    };
-    xhr.send();
-}
+// function loadSlideContent(slideId) {
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('GET', '../components/get_slide_content.php?id=' + slideId, true);
+//     xhr.onreadystatechange = function() {
+//         if (xhr.readyState === XMLHttpRequest.DONE) {
+//             if (xhr.status === 200) {
+//                 document.getElementById('activeSlide').innerHTML = xhr.responseText;
+//                 // Устанавливаем текущий активный слайд
+//                 activeSlideId = slideId;
+//             } else {
+//                 alert('Произошла ошибка при получении содержимого слайда.');
+//             }
+//         }
+//     };
+//     xhr.send();
+// }
 
 // Функция для сохранения содержимого слайда
 function saveSlideContent(slideId) {

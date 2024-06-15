@@ -22,8 +22,8 @@ include "../components/conn.php";
         </a>
         <div class="main_menu_items">
 
-            <a href="" class="main_menu_item">Предпросмотр</a>
-            <a href="" class="main_menu_item">Показ</a>
+            <!-- <a href="" class="main_menu_item">Предпросмотр</a> -->
+            <!-- <a href="" class="main_menu_item">Показ</a> -->
         <?php 
                if (isset($_SESSION['user']) and isset($_SESSION['user']['name'])) { 
                 echo "<a href='' class='main_menu_item'>Пользователь: {$_SESSION['user']['name']}</a> 
@@ -48,12 +48,7 @@ include "../components/conn.php";
 
         <article class="article">
             <div class="fixed activeSlide" id="activeSlide">
-
-
                 <p style="margin-top: 5vw;">для изменения слайда используйте РС или laptop</p>
-               
-                
-                
             </div>
         </article>
         
@@ -138,6 +133,7 @@ include "../components/conn.php";
                             alt="">
                         <p>Добавить текст</p>
                     </button>
+                    <button id="add-text">Добавить текст</button>
                     <button class="presentation_pick_element">
                         <img src="../img/plus.png"
                             alt="">
@@ -198,38 +194,40 @@ include "../components/conn.php";
 
         <!-- функции -->
         <div class="boxfunck2" id="contentSlide">
-            <h1 oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:left; margin-top: 5%; margin-left: 2%; color: black;">Заголовок</h1>
+            <h1 class="contentSlide1" oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:left; margin-top: 5%; margin-left: 2%; color: black;">Заголовок</h1>
             <!-- <h1 id="editableList" ondblclick="enableEditor('editableList')" style="text-align:left; margin-top: 5%; margin-left: 2%; color: black;">Заголовок</h1> -->
-            <h3 oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:left; margin-left: 2.5%;">Нажмите для изменения</h3>
+            <h3 class="contentSlide2" oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:left; margin-left: 2.5%;">Нажмите для изменения</h3>
           </div>
           
           <div class="boxfunck2" id="questionsSlide">
-            <h1 oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:left; margin-top: 5%; margin-left: 2%;  color: black;">Заголовок</h1>
+            <h1 class="questionsSlide1" oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:left; margin-top: 5%; margin-left: 2%;  color: black;">Заголовок</h1>
             <div class="container">
             <div class="block new-questions" id="new-questions">
-              <h3>Новые вопросы</h3>
+              <h3 class="questionsSlide2">Новые вопросы</h3>
             </div>
             <div class="block answered-questions" id="answered-questions">
-              <h3>Отвеченные вопросы</h3>
+              <h3 class="questionsSlide3">Отвеченные вопросы</h3>
             </div>
           </div>
             <div class="block ask-question">
-              <H3>Меню пользователя</H3>
-              <hr>
-              <h3>Задайте вопрос</h3>
-              <textarea id="question-input" placeholder="Введите ваш вопрос" oninput="autoResize(this)"></textarea>
-              <button onclick="submitQuestion()">Отправить</button>
+             
+                <H3>Меню пользователя</H3>
+                <hr>
+                <h3>Задайте вопрос</h3>
+                <textarea id='question-input' placeholder='Введите ваш вопрос' oninput='autoResize(this)'></textarea>
+                <button onclick='submitQuestion()'>Отправить</button>;
+              
             </div>
           
           </div>
           
           <div class="boxfunck2" id="titleSlide">
-            <h1 oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align: center; margin-top: 20%;  color: black;">Заголовок</h1>
-            <h3 oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:center; ">Нажмите для изменения</h3>
+            <h1 class="titleSlide1" oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align: center; color: black">Заголовок</h1>
+            <h3  class="titleSlide2" oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:center; ">Нажмите для изменения</h3>
           </div>
           
           <div class="boxfunck2" id="brainstormSlide">
-            <h1 oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:left; margin-top: 5%; margin-left: 2%;  color: black;">Заголовок</h1>
+            <h1 class="brainstormSlide1" oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:left; margin-top: 5%; margin-left: 2%;  color: black;">Заголовок</h1>
           
             <div class="block new-idea" id="new-ideas"> 
             </div>
@@ -246,8 +244,8 @@ include "../components/conn.php";
           </div>
           
           <div class="boxfunck2" id="listSlide">
-            <h1 oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:center; margin-top: 15%;  color: black;">Заголовок</h1>
-            <ul oncontextmenu="showContextMenu(event, this)" id="editableText"   style="margin-left: 30%; font-size: 18px;">
+            <h1 class="listSlide1" oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:center; margin-top: 15%;  color: black;">Заголовок</h1>
+            <ul class="listSlide2" oncontextmenu="showContextMenu(event, this)" id="editableText"   style="margin-left: 30%; font-size: 18px;">
               <li>Элемент 1</li>
               <li>Элемент 2</li>
               <li>Элемент 3</li>
@@ -255,14 +253,14 @@ include "../components/conn.php";
           </div>
           
           <div class="boxfunck2" id="imageSlide">
-            <h1 oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:center;  color: black; margin-top: 5%">Заголовок</h1>
-            <div id="square" onclick="openImageDialog()" style="text-align:center; margin-left: 32%;">Вставьте изображение</div>
-            <h3 oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:center;">Описание</h3>
+            <h1 class="imageSlide1" oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:center;  color: black; margin-top: 5%">Заголовок</h1>
+            <div class="imageSlide2" id="square" onclick="openImageDialog()" style="text-align:center; margin-left: 32%;">Вставьте изображение</div>
+            <h3 class="imageSlide3" oncontextmenu="showContextMenu(event, this)" id="editableText" style="text-align:center;">Описание</h3>
           </div>
           </div>
 
           <div class="boxfunck2" id="youtubeSlide">
-            <div id="video-container">
+            <div class="youtubeSlide1" id="video-container">
                 <input type="text" id="video-link" placeholder="Вставьте ссылку на Youtube" style="margin-top: 0%; text-align: center;" oninput="loadVideo()">
                 <div id="player" style="height: 10vw;"></div>
                 </div>
@@ -286,9 +284,111 @@ include "../components/conn.php";
 
     
     </main>
+    <script>
+        variable1 = 2;
+        const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.addedNodes.length > 0) {
+      const block = document.querySelector('.block.ask-question');
+      if (block && variable1 === 1) {
+        block.style.display = 'none';
+      }
+    }
+  });
+});
+
+observer.observe(document.body, {
+  childList: true,
+  subtree: true
+});
+
+    </script>
 
     <script>
+    const activeSlide = document.querySelector('.activeSlide');
+    const addTextBtn = document.getElementById('add-text');
+
+    let isDragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    const texts = document.querySelectorAll('.text');
+    texts.forEach((text) => {
+      text.addEventListener('mousedown', (e) => {
+        offsetX = e.clientX - text.offsetLeft;
+        offsetY = e.clientY - text.offsetTop;
+        isDragging = true;
+      });
+
+      text.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        text.style.left = Math.min(Math.max(e.clientX - offsetX, 0), activeSlide.offsetWidth - text.offsetWidth) + 'px';
+        text.style.top = Math.min(Math.max(e.clientY - offsetY, 0), activeSlide.offsetHeight - text.offsetHeight) + 'px';
+      });
+
+      text.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+    });
+
+    addTextBtn.addEventListener('click', () => {
+  const text = document.createElement('div');
+  text.classList.add('text');
+  text.setAttribute('oncontextmenu', 'showContextMenu(event, this)');
+  text.setAttribute('id', 'editableText');
+  text.style.display = 'block';
+  text.innerText = 'Новый текст';
+
+  text.addEventListener('mousedown', (e) => {
+    offsetX = e.clientX - text.offsetLeft;
+    offsetY = e.clientY - text.offsetTop;
+    isDragging = true;
+  });
+
+  text.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    text.style.left = Math.min(Math.max(e.clientX - offsetX, 0), activeSlide.offsetWidth - text.offsetWidth) + 'px';
+    text.style.top = Math.min(Math.max(e.clientY - offsetY, 0), activeSlide.offsetHeight - text.offsetHeight) + 'px';
+  });
+
+  text.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  activeSlide.appendChild(text);
+});
+
+  </script>
+    <script>
+function resizeSmallSlideObjects() {
+  const smallSlideObjects = document.querySelectorAll('.small-slide');
+
+  smallSlideObjects.forEach((object) => {
+    const textElement = object.querySelector('div');
+    textElement.style.transform = 'scale(1)';
+
+    if (textElement.classList.contains('shuak2')) {
+      textElement.style.fontSize = '0.2vw';
+      textElement.style.marginTop = '-25%';
+    } else {
+      textElement.style.marginTop = '-13.5%';
+    }
+  });
+}
+
+// Вызовите функцию после загрузки страницы
+resizeSmallSlideObjects();
+
+// Вызывать функцию каждый раз, когда добавляется новый элемент с классом 'small-slide'
+document.addEventListener('DOMNodeInserted', (event) => {
+  if (event.target.classList.contains('small-slide')) {
+    resizeSmallSlideObjects();
+  }
+});
+
+        
 document.addEventListener('DOMContentLoaded', function() {
+    resizeSmallSlideObjects();
   var slides = document.getElementsByClassName('slide');
   for (var i = 0; i < slides.length; i++) {
     (function(slideId) {
@@ -334,6 +434,7 @@ function addSlide() {
 }
 
 
+
 function loadSlides() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '../components/get_slides.php?id=<?php echo $_GET["id"]; ?>', true);
@@ -367,6 +468,10 @@ function loadSlides() {
     };
     xhr.send();
 }
+
+
+
+
 
 function toggleHover(element) {
     element.classList.toggle('hover');
@@ -442,6 +547,7 @@ function autoSaveSlideContent() {
 }
 
 document.addEventListener('DOMContentLoaded', loadSlides);
+
 
     </script>
 

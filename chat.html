@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Перемещаемые элементы</title>
+  <style>
+    .activeSlide {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text {
+      position: absolute;
+      margin: 0 10px;
+      padding: 10px;
+      background: #fff;
+      cursor: pointer;
+      max-width: calc(100% - 20px);
+      max-height: calc(100% - 20px);
+    }
+
+    .button-container {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      padding: 10px;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="activeSlide">
+    <div class="text" style="display: block;">Новый текст</div>
+  </div>
+
+  <div class="button-container">
+    <button id="add-text">Добавить текст</button>
+  </div>
+
+  <script>
+    const activeSlide = document.querySelector('.activeSlide');
+    const addTextBtn = document.getElementById('add-text');
+
+    let isDragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    const texts = document.querySelectorAll('.text');
+    texts.forEach((text) => {
+      // Добавляем обработчики событий мыши для перемещения
+      text.addEventListener('mousedown', (e) => {
+        offsetX = e.clientX - text.offsetLeft;
+        offsetY = e.clientY - text.offsetTop;
+        isDragging = true;
+      });
+
+      text.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        text.style.left = Math.min(Math.max(e.clientX - offsetX, 0), activeSlide.offsetWidth - text.offsetWidth) + 'px';
+        text.style.top = Math.min(Math.max(e.clientY - offsetY, 0), activeSlide.offsetHeight - text.offsetHeight) + 'px';
+      });
+
+      text.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+    });
+
+    addTextBtn.addEventListener('click', () => {
+      // Создаем новый элемент текста
+      const text = document.createElement('div');
+      text.classList.add('text');
+      text.innerText = 'Новый текст';
+
+      // Добавляем обработчики событий мыши для перемещения
+      text.addEventListener('mousedown', (e) => {
+        offsetX = e.clientX - text.offsetLeft;
+        offsetY = e.clientY - text.offsetTop;
+        isDragging = true;
+      });
+
+      text.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        text.style.left = Math.min(Math.max(e.clientX - offsetX, 0), activeSlide.offsetWidth - text.offsetWidth) + 'px';
+        text.style.top = Math.min(Math.max(e.clientY - offsetY, 0), activeSlide.offsetHeight - text.offsetHeight) + 'px';
+      });
+
+      text.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      // Добавляем новый текст в activeSlide
+      activeSlide.appendChild(text);
+
+      // Отображаем новый текст
+      text.style.display = 'block';
+    });
+  </script>
+</body>
+</html>

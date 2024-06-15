@@ -18,7 +18,10 @@ if (!isset($_SESSION['user']) or ($_SESSION['user']=="")) {
                 $bool = true; 
                 $_SESSION['user'] = array(
                     'id' => $res['id'],
-                    'name' => $res['name']
+                    'name' => $res['name'],
+                    'email' => $res['email'],
+                    'phone' => $res['phone'],
+                    'password' => $res['password']
                 ); 
                 $_SESSION['url'] = "Location: ../index.php";
             } 

@@ -1,26 +1,27 @@
 <?php
 include "components/conn.php";
+$current_page = "index.php"; // Укажите здесь текущую страницу
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <!-- основная шапка -->
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no">
+        <title>WebSocket</title>
+        <link rel="stylesheet" href="css/style.css">
+        <!-- <link rel="stylesheet" href="app.css"> -->
+    </head>
+    <body>
     <header class="main_menu">
         <a href="">
             <div class="logo">
-                <img src="../img/logo.png" alt="">
+                <img src="img/logo.png" alt="">
                 <h6>Prese<b style="color: #1b4aa0;font-size: 2vw">INTE<b style="font-size: 2.5vw;">X</b></b><b style="color:#2ca3dc;font-size: 2vw">PRO</b></h6>
             </div>
         </a>
         <div class="main_menu_items">
-            <a href="" class="main_menu_item">Предпросмотр</a>
-            <a href="" class="main_menu_item">Показ</a>
+            <!-- <a href="" class="main_menu_item">Предпросмотр</a>
+            <a href="" class="main_menu_item">Показ</a> -->
             <?php 
                if (isset($_SESSION['user']) and isset($_SESSION['user']['name'])) { 
                 echo "<a href='' class='main_menu_item'>Пользователь: {$_SESSION['user']['name']}</a> 
@@ -38,29 +39,9 @@ include "components/conn.php";
     <main>
         <!-- боковое пространство слева -->
         <aside>
-            <div class="person">
-                <!-- <img class="person_logo" src="https://media.licdn.com/dms/image/D4E0BAQG-i2j7Q2WFIA/company-logo_200_200/0/1694593112031/img_logo?e=2147483647&v=beta&t=o1304VK0Zbh3CBA-8_LNYNZZCNrQjMIBS-nwKrAMzbY" alt="">
-                <img class="person_logo" src="https://media.licdn.com/dms/image/D4E0BAQG-i2j7Q2WFIA/company-logo_200_200/0/1694593112031/img_logo?e=2147483647&v=beta&t=o1304VK0Zbh3CBA-8_LNYNZZCNrQjMIBS-nwKrAMzbY" alt="">
-                <button class="add_person">
-                    <img src="https://w7.pngwing.com/pngs/932/861/png-transparent-addition-plus-and-minus-signs-plus-miscellaneous-sign-electric-blue-thumbnail.png" alt="">
-                </button>
-            </div> -->
-
-            <div class="function">
-                <div class="workspace_choose">
-                    <h4>Workspace</h4>
-                    <h5>Personal</h5>
-                </div>
-                <div class="funci" id="presentationsList1">
-                <div class="func">
-                    <img class="function_logo" src="https://media.licdn.com/dms/image/D4E0BAQG-i2j7Q2WFIA/company-logo_200_200/0/1694593112031/img_logo?e=2147483647&v=beta&t=o1304VK0Zbh3CBA-8_LNYNZZCNrQjMIBS-nwKrAMzbY" alt="">
-                    <p class="function_name">моя презентация</p>
-                </div>
-                <div class="func">
-                    <img class="function_logo" src="https://media.licdn.com/dms/image/D4E0BAQG-i2j7Q2WFIA/company-logo_200_200/0/1694593112031/img_logo?e=2147483647&v=beta&t=o1304VK0Zbh3CBA-8_LNYNZZCNrQjMIBS-nwKrAMzbY" alt="">
-                    <p class="function_name">my presentation</p>
-                </div>
-                </div>
+            <div class="navmenu">
+                <a href="index.php" class="namenavmenu <?php if ($current_page === 'index.php') echo 'active'; ?>">Мои презентации</a>
+                <a href="user.php" class="namenavmenu <?php if ($current_page === 'user.php') echo 'active'; ?>">Моя страница</a>
             </div>
         </aside>
 
@@ -72,26 +53,27 @@ include "components/conn.php";
                     unset($_SESSION['error']);
                 }
             ?>
-            <div class="rect1">
+            <!-- <div class="rect1">
                 <img src="img/rect1.png" alt="">
-            </div>
+            </div> -->
             <div class="rect2">
-                <img src="img/rect2.png" alt="">
+                <img src="img/rect22.png" alt="">
             </div>
             <div class="rect3">
-                <img src="img/rect2.png" alt="">
+                <img src="img/rect22.png" alt="">
             </div>
             
 
             <div class="templates">
-                <div class="option_template">
+                <!-- <div class="option_template">
                     <select name="template" id="templates_point">
                         <option value="val1">Начать с шаблона</option>
                         <option value="val2">Пункт 2</option>
                         <option value="val3">Пункт 3</option>
                     </select>
-                </div>
+                </div> -->
                 <!-- шаблоны -->
+               <p style="margin-left: 4%; font-size: 0.9vw;"> <b>Начать с шаблона ▼</b></p> 
                 <div class="templates_gallery">
 
 
@@ -99,33 +81,22 @@ include "components/conn.php";
                     <div class="template_item">
                         <div class="template_img">
                             <a href="#">
-                                <img src="../img/bg3.png" alt="">
+                                <img src="img/bg3.png" alt="">
                             </a>
                         </div>
                     </div>
-                    <p style="color: black; text-align: center; font-size: 1vw">Browse all</p>
+                    <p style="color: black; text-align: center;">Browse all</p>
                     </div>
 
                     <div class="blank">
                     <div class="template_item">
                         <div class="template_img">
                             <a href="#">
-                                <img src="../img/bg1.png" alt="">
+                                <img src="img/bg3.png" alt="">
                             </a>
                         </div>
                     </div>
-                    <p style="color: black; text-align: center; font-size: 1vw">100 Bad Ideas</p>
-                    </div>
-
-                    <div class="blank">
-                    <div class="template_item">
-                        <div class="template_img">
-                            <a href="#">
-                                <img src="../img/bg3.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <p style="color: black; text-align: center; font-size: 1vw">Fill in the Blank</p>
+                    <p style="color: black; text-align: center; ">Browse all</p>
                     </div>
 
 
@@ -133,11 +104,33 @@ include "components/conn.php";
                     <div class="template_item">
                         <div class="template_img">
                             <a href="#">
-                                <img src="../img/bg2.png" alt="">
+                                <img src="img/bg3.png" alt="">
                             </a>
                         </div>
                     </div>
-                    <p style="color: black; text-align: center; font-size: 1vw">Team Time</p>
+                    <p style="color: black; text-align: center; ">Browse all</p>
+                    </div>
+
+                    <div class="blank">
+                    <div class="template_item">
+                        <div class="template_img">
+                            <a href="#">
+                                <img src="img/bg1.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <p style="color: black; text-align: center; ">100 Bad Ideas</p>
+                    </div>
+
+                    <div class="blank">
+                    <div class="template_item">
+                        <div class="template_img">
+                            <a href="#">
+                                <img src="img/bg3.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <p style="color: black; text-align: center;">Fill in the Blank</p>
                     </div>
 
 
@@ -145,11 +138,11 @@ include "components/conn.php";
                     <div class="template_item">
                         <div class="template_img">
                             <a href="#">
-                                <img src="../img/bg3.png" alt="">
+                                <img src="img/bg2.png" alt="">
                             </a>
                         </div>
                     </div>
-                    <p style="color: black; text-align: center; font-size: 1vw">Brainstorming</p>
+                    <p style="color: black; text-align: center; ">Team Time</p>
                     </div>
 
 
@@ -157,11 +150,23 @@ include "components/conn.php";
                     <div class="template_item">
                         <div class="template_img">
                             <a href="#">
-                                <img src="../img/bg2.png" alt="">
+                                <img src="img/bg3.png" alt="">
                             </a>
                         </div>
                     </div>
-                    <p style="color: black; text-align: center; font-size: 1vw">Sales Meeting</p>
+                    <p style="color: black; text-align: center;">Brainstorming</p>
+                    </div>
+
+
+                    <div class="blank">
+                    <div class="template_item">
+                        <div class="template_img">
+                            <a href="#">
+                                <img src="img/bg2.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <p style="color: black; text-align: center;">Sales Meeting</p>
                     </div>
 
 
@@ -172,32 +177,41 @@ include "components/conn.php";
             <!-- рабочее пространство -->
             <div class="workspace">
                 <div class="workspace_name">
-                    <h2>WORKSPACE / PERSONAL</h2>
+                    <h2>Мои презентации</h2>
                 </div>
                 <hr>
                 
                 <div class="wrapper">
                     <div class="workspace_buttons">
                     <button class="workspace_button" id="addPresentationButton">
-                        <img class="button_icon" src="../img/add.png" alt="">
-                        Создать
+                        <img class="button_icon" src="img/add.png" alt="">
+                        Создание презентации
                         </button>
-                        <button class="workspace_button" >
-                          <!-- <a href="pages/present_show.php"> -->
+
+
+                        <!-- <button class="workspace_button" >
                             <img class="button_icon" src="../img/import.png" alt=""> Import
                         </button>
                         <button class="workspace_button">
                             <img class="button_icon" src="../img/export.png" alt=""> Export
-                        </button>
+                        </button> -->
+
+
                     </div>
+                    <!-- <button id="change-color-btn">цвет</button> -->
                     <div class="sort shadow_select">
-                        <p>Sort by </p>
+                        <p style="font-size: 1vw">Сортировать:</p>
                         <select name="sort" id="presentations_point">
-                            <option value="value1">Recently uploaded</option>
-                            <option value="value2">Recently</option>
+                            <option value="value1">Последнее обновление</option>
+                            <option value="value2">Имени</option>
                         </select>
                     </div>
                 </div>
+
+                    <div class="sortname">
+                        <p style="font-size: 0.8vw"><b style="font-size: 0.8vw">Создатель</b><p>
+                        <p style="font-size: 0.8vw" > <b style="font-size: 0.8vw">Последнее обновление ▼</b><p>
+                    </div>
 
                 <div class="presentations" id="presentationsList">
                     <div class="wrapper_a">
@@ -214,8 +228,17 @@ include "components/conn.php";
                 </div>
             </div>
         </article>
-    </main>
-    <script src="js/getPresentation.js"></script>
-    <script src="js/getPresentationFunc.js"></script>
-</body>
+   
+
+            <form id="form">
+             
+            </form>
+        </main>
+        
+        <button id="change-color-btn">цвет</button>
+      
+            <script src="app.js"></script>
+            <script src="js/getPresentation.js"></script>
+            <script src="js/getPresentationFunc.js"></script>
+    </body>
 </html>

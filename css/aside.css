@@ -1,10 +1,11 @@
 aside {
     display: flex;
-    width: 14.5vw;
-    background-color: rgb(28, 75, 160);
+    width: 13.5vw;
+    background-color: rgb(13, 41, 92);
     height: auto;
     border-right: 1px solid black;
     border-top: 1px solid black;
+    z-index: 2;
 }
 
 .add_person {

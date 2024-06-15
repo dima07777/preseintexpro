@@ -19,7 +19,8 @@
     height: 48vw;
 }
 .small-slide {
-    width: 80%;
+    /* position: fixed; */
+    width: 11vw;
     height: 6vw;
     margin: 10% 10%;
     border: 2px solid  rgb(169, 169, 169);
@@ -57,6 +58,9 @@
     background-color: white;
     /* z-index: -6; */
 }
+
+
+
 .fixed > p {
     visibility: hidden;
 }
@@ -126,6 +130,8 @@ label > .rad:checked + p {
     height: 5vw;
     background-color: white;
     border: 1px solid black;
+    background-size: cover;
+    background-position: center;
     border-radius: 0.5vw;
 }
 .presentation_pick_element:hover{
@@ -146,6 +152,7 @@ label > .rad:checked + p {
     width: 15%;
     height: 2vw;
     margin-top: 20%;
+    z-index: 9999;
     margin-left: 80%;
     /* text-align: right; */
     border: 0.5px solid gray;
@@ -229,14 +236,21 @@ label > .rad:checked + p {
 .bgph7,
 .bgph8,
 .bgph5 {
+    background-size: cover;
+    background-position: center;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%; /* изменено с 57.6vw на 100% */
-    height: 36.3vw;
+    height: 100%;
     border: 1px solid rgb(158, 158, 158);
     border-radius: 1vw;
     z-index: -1;
+}
+
+img{
+    background-size: cover;
+    background-position: center;
 }
 
 .bgph0{
@@ -283,3 +297,86 @@ label > .rad:checked + p {
     transform: translateY(-50%);
     transform: translateX(-50%);
   } */
+
+  .titleSlide1{
+    margin-top: 20%;
+  }
+
+  .small-slide .titleSlide1 {
+    margin-top: 4% !important;
+    font-size: 0.9vw !important;
+  }
+  .small-slide .titleSlide2 {
+    margin-top: -3% !important;
+    font-size: 0.6vw !important;
+  }
+  
+  .small-slide .contentSlide1 {
+    margin-top: 4% !important;
+    font-size: 0.9vw !important;
+    margin-left: 10% !important;
+  }
+  .small-slide .contentSlide2 {
+    margin-top: -12% !important;
+    font-size: 0.5vw !important;
+    margin-left: 10% !important;
+  }
+
+  .small-slide .listSlide1 {
+    margin-top: 4% !important;
+    font-size: 0.9vw !important;
+  }
+  .small-slide .listSlide2 {
+    margin-top: -12% !important;
+    font-size: 0.5vw !important;
+  }
+
+  .small-slide .imageSlide1 {
+    margin-top: 4% !important;
+    font-size: 0.9vw !important;
+  }
+  .small-slide .imageSlide2 {
+    margin-top: -10% !important;
+    font-size: 0.7vw !important;
+    margin-left: -40% !important;
+  }
+  .small-slide .imageSlide3 {
+    margin-top: -175% !important;
+    font-size: 0.4vw !important;
+    margin-left: 0% !important;
+  }
+  
+  .small-slide .questionsSlide1 {
+    margin-top: 4% !important;
+    font-size: 0.9vw !important;
+    margin-left: 10% !important;
+  }
+  .small-slide .questionsSlide2 {
+    margin-top: -4% !important;
+    font-size: 0.5vw !important;
+  }
+  .small-slide .questionsSlide3 {
+    margin-top: -1% !important;
+    font-size: 0.4vw !important;
+    margin-left: 0% !important;
+  }
+
+  .small-slide .brainstormSlide1 {
+    margin-top: 4% !important;
+    font-size: 0.9vw !important;
+    margin-left: 10% !important;
+  }
+  .small-slide .youtubeSlide1 {
+    margin-top: 3% !important;
+    transform: scale(0.2) !important;
+    margin-left: -67% !important;
+  }
+  .text {
+    position: absolute;
+    margin: 0 10px;
+    padding: 10px;
+    background: transparent;
+    cursor: pointer;
+    max-width: calc(100% - 20px);
+    max-height: calc(100% - 20px);
+  }

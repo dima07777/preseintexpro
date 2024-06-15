@@ -18,8 +18,8 @@ include "../components/conn.php";
             </div>
         </a>
         <div class="main_menu_items">
-                <a href="" class="main_menu_item">Предпросмотр</a>
-                <a href="" class="main_menu_item">Показ</a>
+                <!-- <a href="" class="main_menu_item">Предпросмотр</a> -->
+                <!-- <a href="" class="main_menu_item">Показ</a> -->
             <?php 
                 if (isset($_SESSION['user']) and ($_SESSION['user'])) {
                     echo "<a href='' class='main_menu_item'>Пользователь: {$_SESSION['user']}</a>
