@@ -7,7 +7,7 @@ $current_page = "index.php"; // Укажите здесь текущую стр�
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no">
-        <title>WebSocket</title>
+        <title>Presintexpro</title>
         <link rel="stylesheet" href="css/style.css">
         <!-- <link rel="stylesheet" href="app.css"> -->
     </head>
