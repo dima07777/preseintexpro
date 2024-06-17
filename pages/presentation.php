@@ -127,18 +127,25 @@ include "../components/conn.php";
                         alt="">
                     <p><b>Collect options - Q&A</b></p>
                 </div>
+
+
                 <div class="presentation_pick_gallery" >
-                    <button class="presentation_pick_element" id="addTextButton">
+                    <button class="presentation_pick_element" id="add-text">
                         <img src="../img/textedit.png"
                             alt="">
                         <p>Добавить текст</p>
                     </button>
-                    <button id="add-text">Добавить текст</button>
+
+                    <!-- <button id="add-text">Добавить текст22</button> -->
+
+
                     <button class="presentation_pick_element">
                         <img src="../img/plus.png"
                             alt="">
                         <p>Pick Answer</p>
                     </button>
+
+
                     <button class="presentation_pick_element">
                         <img src="../img/plus.png"
                             alt="">
@@ -212,7 +219,7 @@ include "../components/conn.php";
             <div class="block ask-question">
              
                 <H3>Меню пользователя</H3>
-                <hr>
+                <!-- <hr> -->
                 <h3>Задайте вопрос</h3>
                 <textarea id='question-input' placeholder='Введите ваш вопрос' oninput='autoResize(this)'></textarea>
                 <button onclick='submitQuestion()'>Отправить</button>;
@@ -234,7 +241,7 @@ include "../components/conn.php";
             
             <div class="block brainstorm ask-question" style="margin-top:0%">
               <h3>Меню пользователя</h3>
-              <hr>
+              <!-- <hr> -->
               <h4>Напишите вашу идею</h4>
               <textarea id="question-input" placeholder="Введите ваш вопрос" oninput="autoResize(this)"></textarea>
               <button onclick="submitIdea()">Отправить</button>
@@ -285,12 +292,13 @@ include "../components/conn.php";
     
     </main>
     <script>
-        variable1 = 2;
+         const userId = <?php echo $_SESSION['user']['id']; ?>;
+        variable1 = 1;
         const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     if (mutation.addedNodes.length > 0) {
       const block = document.querySelector('.block.ask-question');
-      if (block && variable1 === 1) {
+      if (block && variable1 === userId) {
         block.style.display = 'none';
       }
     }

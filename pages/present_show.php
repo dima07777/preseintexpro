@@ -267,7 +267,7 @@
 </main>
 <script>
 	 const userId = <?php echo $_SESSION['user']['id']; ?>;
-  var variable1 = 1;
+  	  var variable1 = 1;
 
  const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
@@ -1031,5 +1031,6 @@ function autoSaveSlideContent() {
 document.addEventListener('DOMContentLoaded', loadSlides);
 
     </script>
+ <script src="../js/questions.js"></script>
 	</body>
 </html>

@@ -3,7 +3,7 @@ const messages = document.getElementById('messages');
 const form = document.getElementById('form');
 const input = document.getElementById('input');
 
-const ws = new WebSocket('ws://dimataxz.beget.tech:3000');
+const ws = new WebSocket('ws://localhost:3000');
 
 function setStatus(value) {
   status.innerHTML = value;
@@ -75,7 +75,7 @@ ws.onmessage = response => {
 function loadSlideContent(slideId) {
   // Загружаем содержимое слайда
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', '../components/get_slide_content.php?id=' + slideId, true);
+  xhr.open('GET', '/components/get_slide_content.php?id=' + slideId, true);
   xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
           if (xhr.status === 200) {

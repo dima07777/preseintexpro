@@ -235,7 +235,6 @@ $current_page = "index.php"; // Укажите здесь текущую стр�
             </form>
         </main>
         
-        <button id="change-color-btn">цвет</button>
       
             <script src="app.js"></script>
             <script src="js/getPresentation.js"></script>

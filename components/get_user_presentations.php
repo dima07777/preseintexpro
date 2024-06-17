@@ -34,7 +34,7 @@
             </div>
             <div class='wrapper_presentation_info'>
                 <p>Дмитрий</p>
-                <p>14.03.2013</p>
+                <p>17.06.2024</p>
                 <a href='pages/present_show.php?id=" . $row["id"] ."' class='hidden present_button'>► Просмотр</a>
 
                 <button style='width:20px; border-radius:9px' onclick='deletepresentations(" . $row["id"] . ")'><img src='../img/delete.png'></button>

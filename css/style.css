@@ -173,8 +173,10 @@ color: rgb(28, 75, 160); темнее
         justify-content: center; 
         align-items: center; 
         cursor: pointer;
+        font-size: 1vw;
     }
     .namenavmenu.active {
+        font-size: 1vw;
         border-radius: 5px;
         box-shadow: inset 0px 4px 4px 0px rgb(0, 0, 0);
         background: rgb(4, 25, 58);

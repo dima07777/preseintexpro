@@ -29,5 +29,5 @@ if (!isset($_SESSION['user']) or ($_SESSION['user']=="")) {
         if ($bool == false) $_SESSION['error'] = "Неверный логин или пароль"; 
     } 
 } 
-header("Location: ../pages/authorization.php");
+header("Location: ../index.php");
 ?>

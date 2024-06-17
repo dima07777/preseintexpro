@@ -19,6 +19,7 @@
     padding-left: 0.5vw; /* сдвинуть текст на 0,5vw влево */
 }
 .username2{
+    font-size: 0.7vw;
     display: flex; 
     align-items: center; 
     justify-content: left;

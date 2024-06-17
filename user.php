@@ -1,8 +1,17 @@
 <?php
 session_start();
 include "components/conn.php";
-$current_page = "user.php"; 
+
+if (!isset($_SESSION['user'])) {
+  header("Location: pages/authorization.php");
+  session_destroy(); // Закрываем сессию
+  exit;
+}
+
+$current_page = "user.php";
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,39 +85,48 @@ $current_page = "user.php";
                         </div>
                     </div>
                     <div id="content">
-    <div id="profile">
-        <div class="rightmenuuser" id="profile" >
-            <div class="headuser" id="profile">
-                <p  style="color:white; margin-left: 5%"> Профиль</p>    
+
+
+
+                    <div id="profile">
+    <div class="rightmenuuser" id="profile">
+        <div class="headuser" id="profile">
+            <p style="color:white; margin-left: 5%">Профиль</p>    
+        </div>
+
+        <form action="components/update_profile.php" method="post">
+          
+          <div class="menuuser" id="profile">
+            <div class="imguserleft" id="profile">
+              <div class="imguser" id="profile">
+                <img src="img/bg2.png" alt="Фото пользователя">
+              </div>
+              <button class="workspace_button_user" id="">
+                Загрузить
+              </button>
             </div>
-
-            <div class="menuuser" id="profile" >
-                    <div class="imguserleft" id="profile">
-                    <div class="imguser" id="profile">
-                    <img src="img/bg2.png" alt="Фото пользователя">
-                    </div>
-                    <button class="workspace_button_user" id="">
-                   Загрузить
-                     </button>
-                    </div>
-                    <div class="infouser" id="profile">
-                        <p class="name_user">Имя</p>
-                        <input class="input_name_user" type="text" placeholder="   <?php echo $_SESSION['user']['name']?>">
-
-                        <p class="name_user">Email</p>
-                        <input class="input_name_user" type="text" placeholder="   <?php echo $_SESSION['user']['email']?>">
-                 
-
-                        <p class="name_user">Номер</p>
-                        <input class="input_name_user" type="text" placeholder="   <?php echo $_SESSION['user']['phone']?>">
-
-                    </div>
-                    <button class="workspace_button_info" id="">
-                            Обновить
-                        </button>
+            <div class="infouser" id="profile">
+              <p class="name_user">Имя</p>
+              <input class="input_name_user" type="text" name="name" value="<?php echo htmlspecialchars($_SESSION['user']['name']) ?>">
+              
+              <p class="name_user">Email</p>
+              <input class="input_name_user" type="text" name="email" value="<?php echo htmlspecialchars($_SESSION['user']['email']) ?>">
+              
+              <p class="name_user">Номер</p>
+              <input class="input_name_user" type="text" name="phone" value="<?php echo htmlspecialchars($_SESSION['user']['phone']) ?>">
+              
             </div>
-        </div> 
-    </div>
+            <button class="workspace_button_info" type="submit">
+              Обновить
+            </button>
+          </form>
+
+        </div>
+    </div> 
+</div>
+
+
+
 
     <div id="security" class="hidden2">
     <div class="rightmenuuser"  id="security" >
